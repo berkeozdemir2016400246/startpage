@@ -1,0 +1,176 @@
+<head>
+	<link rel="stylesheet" href="w3.css">
+	<script>
+	function start(){
+		startTime();
+		searchInit();
+	}
+	</script>
+</head>
+
+<body class="w3-dark-gray w3-diplay-container" onload="start()">
+
+	<div class="w3-cell-row w3-container w3-display-middle" style="height:640px;width:1280px">
+
+		<div class="w3-cell" style="border:8px solid white;width:28.125%" >
+			<img id="image" src="1564007683051.png" alt="image" style="width:360px;height:640px" class="">
+		</div>
+		
+		<div class="w3-cell" style="width:1.75%">
+		
+		</div>	
+		
+		<div class="w3-cell w3-container" style="border:8px solid white">
+
+			<div class="w3-panel w3-center w3-section" id="txt" style="border:8px solid white">
+				<script>
+					function startTime() {
+					  var today = new Date();
+					  var day = today.getDate();
+					  var month = today.getMonth();
+					  var year = today.getFullYear();
+					  var h = today.getHours();
+					  var m = today.getMinutes();
+					  var s = today.getSeconds();
+					  m = checkTime(m);
+					  s = checkTime(s);
+					  document.getElementById('txt').innerHTML =
+					  day+"/"+month+"/"+"/"+year+"	"+h + ":" + m + ":" + s;
+					  var t = setTimeout(startTime, 500);
+					}
+					function checkTime(i) {
+					  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+					  return i;
+					}
+					</script>
+			</div>
+			
+
+			<div class="w3-panel" id="searchbar" style="border:8px solid white">
+				<div class="w3-section">
+					<form class="w3-cell-row" action="javascript:search();">
+						<input class="w3-cell w3-margin-right" type="text" placeholder="Search.." name="search" id="search" style="width:500px">
+						<div class="dropdown w3-cell w3-margin-right" style="width:150px">
+						<button class="dropbtn"  id="dropbutton" style="width:150px"></button>
+							<div class="dropdown-content">
+								<p onclick="changeEngine(this.innerHTML)" class="w3-text-black w3-hover-blue">Google</p>
+								<p onclick="changeEngine(this.innerHTML)" class="w3-text-black w3-hover-blue">YouTube</p>
+								<p onclick="changeEngine(this.innerHTML)" class="w3-text-black w3-hover-blue">RateYourMusic</p>
+								<p onclick="changeEngine(this.innerHTML)" class="w3-text-black w3-hover-blue">MyAnimeList</p>
+								<p onclick="changeEngine(this.innerHTML)" class="w3-text-black w3-hover-blue">IMDB</p>
+								<p onclick="changeEngine(this.innerHTML)" class="w3-text-black w3-hover-blue">StackOverFlow</p>
+								<p onclick="changeEngine(this.innerHTML)" class="w3-text-black w3-hover-blue">Anime</p>
+								<p onclick="changeEngine(this.innerHTML)" class="w3-text-black w3-hover-blue">Asian Fans</p>
+							</div>
+						</div>
+						
+						<div class="w3-cell w3-center dropdown" style="width:50px">
+							<button onclick="search()">Submit</button>
+						</div>
+					</form>
+				</div>
+			</div>
+			
+			<script>
+			function searchInit(){
+				document.getElementById("dropbutton").innerHTML = "Google";	
+			}
+			
+			function changeEngine(engine){
+				document.getElementById("dropbutton").innerHTML = engine;
+			}
+			
+			function search(){
+				var engine = document.getElementById("dropbutton").innerHTML;
+				var query = document.getElementById("search").value;
+				switch (engine){
+					case "Google":
+						var url = "https://www.google.com.tr/search?q="+query
+					break;
+					case "YouTube":
+						var url = "https://www.youtube.com/results?search_query=w"+query
+					break;
+					case "RateYourMusic":
+						var url = "https://rateyourmusic.com/search?bx=1f6268d036fe96c053a84c18e0e079a5&searchtype=a&searchterm="+query
+					break;
+					case "MyAnimeList":
+						var url = "https://myanimelist.net/search/all?q=w"+query
+					break;
+					case "IMDB":
+						var url = "https://www.imdb.com/find?ref_=nv_sr_fn&q="+query+"&s=all"
+					break;
+					case "StackOverFlow":
+						var url = "https://stackoverflow.com/search?q="+query
+					break;
+					case "Anime":
+						var url = "https://9anime.to/search?keyword="+query
+					break;
+					case "Asian Fans":
+						var url = "http://www.asianfans.net/search/?id="+query
+					break;
+				}
+				window.location.href = url;
+				
+			}
+			
+			</script>
+			
+
+			<div id="links" class="w3-cell-row " style="height:452px">
+				<div class="w3-section w3-cell" style="border:8px solid white;height:400px;width:22%">
+					<h5 class="w3-center">Entertainment</h5>
+					<ul class="" >
+						<li><a href="https://www.youtube.com/">YouTube</a></li>
+						<li><a href="https://9anime.to/home">Anime</a></li>
+						<li><a href="https://rateyourmusic.com/">RateYourMusic</a></li>
+						<li><a href="https://www.4channel.org/">4chan</a></li>
+						<li><a href="https://lichess.org/">LiChess</a></li>
+						<li><a href="http://www.asianfans.net/">Shows</a></li>
+						<li><a href="https://boards.4channel.org/fit/">/fit/</a></li>
+						<li><a href="https://boards.4channel.org/int/">/int/</a></li>
+						<li><a href="https://boards.4channel.org/g/">/g/</a></li>
+						<li><a href="https://boards.4channel.org/p/">/p/</a></li>
+						<li><a href="https://boards.4channel.org/mu/">/mu/</a></li>
+					</ul>
+				</div>
+				
+				<div class="w3-cell" style="width:4%"></div>
+				
+				<div class="w3-section w3-cell" style="border:8px solid white;height:400px;width:22%">
+					<h5 class="w3-center">Misc</h5>
+					<ul class="" >
+						<li><a href="https://web.whatsapp.com/">WhatsApp</a></li>
+						<li><a href="https://www.instagram.com/">Instagram</a></li>
+						<li><a href="https://www.linkedin.com/feed/">LinkedIn</a></li>
+					</ul>
+				</div>
+				
+				<div class="w3-cell" style="width:4%"></div>
+				
+				<div class="w3-section w3-cell" style="border:8px solid white;height:400px;width:22%">
+					<h5 class="w3-center">School</h5>
+					<ul class="" >
+						<li><a href="https://moodle.boun.edu.tr/login/login.php">Moodle</a></li>
+						<li><a href="https://piazza.com/">Piazza</a></li>
+						<li><a href="https://www.duolingo.com/">Duolingo</a></li>
+						<li><a href="https://www.cmpe.boun.edu.tr/">Boun Cmpe</a></li>
+						<li><a href="https://registration.boun.edu.tr/buis/Login.aspx">Boun <br> Registration</a></li>
+					</ul>
+				</div>
+				
+				<div class="w3-cell" style="width:4%"></div>
+				
+				<div class="w3-section w3-cell" style="border:8px solid white;height:400px;width:22%">
+					<h5 class="w3-center">Coding</h5>
+					<ul class="" >
+						<li><a href="https://leetcode.com/problemset/all/">LeetCode</a></li>
+						<li><a href="https://www.w3schools.com/default.asp">W3</a></li>
+						<li><a href="https://github.com/">Github</a></li>
+					</ul>
+				</div>
+			
+		</div>
+	
+	</div>	
+	
+<body>
